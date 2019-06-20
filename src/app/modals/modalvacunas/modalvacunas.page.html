@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>
+
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Vacunas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--<app-header titulo="Vacunas"></app-header>-->
+
+<ion-content padding>
+  <!--<ion-list *ngFor="let vac of vacunas">
+    <ion-item lines="inset" button [routerLink]="['/modalvaquero', vac.id]" detail>
+      <ion-label>
+        {{vac.nombre}}
+      </ion-label>
+    </ion-item>
+  </ion-list>-->
+  <ion-button expand="full" routerLink="/modalvaquero">Agregar nuevo</ion-button>
+  <!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addVacuna()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>-->
+</ion-content>

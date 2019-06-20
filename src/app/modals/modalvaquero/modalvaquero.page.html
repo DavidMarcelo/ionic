@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Agregar vacuna</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-col>
+    
+  </ion-col>
+  <ion-card>
+    <ion-card-header>
+      Vacunas
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre del animal</ion-label>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre animal o apodo" [(ngModel)]="vacuna.nombreAnimal"></ion-input>
+      </ion-item>
+      <ion-label>Nombre de la vacuna</ion-label>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre de la vacuna" [(ngModel)]="vacuna.nombre"></ion-input>
+      </ion-item>
+      <ion-label>Dosis:</ion-label>
+      <ion-item>
+        <ion-input type="number" placeholder="Dosis" [(ngModel)]="vacuna.dosis"></ion-input>
+      </ion-item>
+      <ion-label>Fecha de administración:</ion-label>
+      <ion-item>
+        <ion-datetime displayFormat="dd/MM/YYYY" placeholder="Fecha de inicio" [(ngModel)]="vacuna.fechainicio"></ion-datetime>
+      </ion-item>
+      <ion-label>Fecha de 21 dias:</ion-label>
+      <ion-item>
+        <ion-datetime displayFormat="dd/MM/YYYY" max="2050-12-31" placeholder="Fecha fin" [(ngModel)]="vacuna.fechafin"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" >Guardar</ion-button>
+
+</ion-content>

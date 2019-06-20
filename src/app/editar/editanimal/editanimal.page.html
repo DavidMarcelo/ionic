@@ -1,0 +1,118 @@
+<app-header titulo="Editar"></app-header>
+
+<ion-content padding fullscreen>
+
+  <ion-card>
+    <ion-card-header>
+      <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+      <ion-card-title>Datos Principales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre o apodo:</ion-label>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="animal.nombre" placeholder="Nombre del animal"></ion-input>
+      </ion-item>
+      <ion-label>Raza:</ion-label>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="animal.raza" placeholder="Raza del animal"></ion-input>
+      </ion-item>
+      <ion-label>Fecha de nacimiento:</ion-label>
+      <ion-item>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="animal.nacimiento"></ion-datetime>
+      </ion-item>
+      <ion-label>Sexo:</ion-label>
+      <ion-list>
+        <ion-select (ionChange)="selectSexo($event)" [(ngModel)]="animal.sexoAnimal">
+          <ion-select-option selected>Macho</ion-select-option>
+          <ion-select-option>Hembra</ion-select-option>
+        </ion-select>
+      </ion-list>
+      <ion-label *ngIf="estadoHembra">Vacia:</ion-label>
+      <ion-list *ngIf="estadoHembra">
+        <ion-select [(ngModel)]="animal.vacia" (ionChange)="selectVacia($event)">
+          <ion-select-option>Ciclando</ion-select-option>
+          <ion-select-option>Estatica</ion-select-option>
+        </ion-select>
+      </ion-list>
+      <ion-label>Numero interno:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="animal.numInt" type="number" placeholder="Número interno del animal"></ion-input>
+      </ion-item>
+      <ion-label>Numero de pierna:</ion-label>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="animal.numPierna" placeholder="Ingrese el numero"></ion-input>
+      </ion-item>
+      <ion-label>Siiniga:</ion-label>
+      <ion-item>
+        <ion-input type="text" placeholder="Ingrese la siiniga" [(ngModel)]="animal.siiniga"></ion-input>
+      </ion-item>
+      <ion-label>Madre:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="animal.madre" type="text" placeholder="Nombre de la madre"></ion-input>
+      </ion-item>
+      <ion-label>Padre:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="animal.padre" type="text" placeholder="Nombre del padre"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <!--<ion-card-header>Estado</ion-card-header>-->
+    <ion-card-content>
+      <ion-label>Estado del animal:</ion-label>
+      <ion-list>
+        <ion-select [(ngModel)]="animal.estado" valueSelect="Normal" (ionChange)="selectEstado($event)">
+          <ion-select-option selected>Normal</ion-select-option>
+          <ion-select-option>Enfermo</ion-select-option>
+          <ion-select-option>Calor</ion-select-option>
+          <ion-select-option>Gestante</ion-select-option>
+        </ion-select>
+      </ion-list>
+      <!--Inicio estado normal-->
+      <ion-label>Observaciones:</ion-label>
+      <ion-item>
+        <ion-textarea
+          [(ngModel)]="animal.observaciones"
+          placeholder="Observaciones del animal..."
+          rows="4" cols="20">
+        </ion-textarea>
+      </ion-item>
+      <ion-label>Ubicación:</ion-label>
+      <ion-list>
+        <ion-select [(ngModel)]="animal.ubicacion"><!--(ionChange)="selectUbicacion($event)"-->
+          <ion-select-option selected>Pastura</ion-select-option>
+          <ion-select-option>Corral 1</ion-select-option>
+          <ion-select-option>Corral 2</ion-select-option>
+          <ion-select-option>Corral 3</ion-select-option>
+          <ion-select-option>Corral 4</ion-select-option>
+          <ion-select-option>Corral 5</ion-select-option>
+          <ion-select-option>Corral 6</ion-select-option>
+          <ion-select-option>Corral 7</ion-select-option>
+          <ion-select-option>Corral 8</ion-select-option>
+        </ion-select>
+      </ion-list>
+      <ion-button expand="full" [routerLink]="['/modalvacunas', animal.nombre]" >Añadir vacunas</ion-button>
+      <ion-button *ngIf="estadoHembra" expand="full"  (click)="agergarCria()">Añadir hijos</ion-button>
+      <!--Fin estado normal-->
+
+      <!--Inicio estado Enfermo-->
+      <!--<ion-datetime value="{{fechaActual | date: 'yyyy-MM-dd'}}" display-format="YYYY MMMM DD"></ion-datetime>-->
+      <!--Fin estado Enfermo-->
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" (click)="guardar()">
+        <ion-icon name="save"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="eliminar()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

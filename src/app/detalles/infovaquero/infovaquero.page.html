@@ -1,0 +1,49 @@
+<app-header titulo="Información vaquero"></app-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <!--<ion-card-subtitle *ngIf="usuario">Datos de {{usuario.nombre}}</ion-card-subtitle>-->
+      <ion-card-title *ngIf="usuario">Datos de {{usuario.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Fecha de nacimiento:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{usuario.nacimiento}}</ion-label>
+      </ion-item>
+      <!--<ion-label>Edad:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{edad}}</ion-label>
+      </ion-item>-->
+      <ion-label>Tipo de usuario:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{usuario.tipo}}</ion-label>
+      </ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{usuario.correo}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos de su cuenta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-label>Nombre de usuario:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{usuario.nombreUsuario}}</ion-label>
+      </ion-item>
+      <ion-label>Contraseña:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-label>{{usuario.contraUsuario}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+  <!--<ion-button *ngIf="usuario" expand="full" routerLink="/editvaquero">Editar</ion-button>-->
+  <ion-button [routerLink]="['/editvaquero', usuarioId]"></ion-button>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>editvaquero</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<app-header titulo="Editar usuario"></app-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Nombre:</ion-label>
+      <ion-item >
+        <ion-input [(ngModel)]="usuario.nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-label>Fecha de nacimiento:</ion-label>
+      <ion-item >
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="usuario.nacimiento"></ion-datetime>
+      </ion-item>
+      <ion-label>Tipo de usuario:</ion-label>
+      <ion-list>
+        <ion-select (ionChange)="tipoUsuario($event)" [(ngModel)]="usuario.tipo">
+          <ion-select-option value="Vaquero">Vaquero</ion-select-option>
+          <ion-select-option value="Veterinario">Veterinario</ion-select-option>
+          <ion-select-option value="Socio">Socio</ion-select-option>
+        </ion-select>
+      </ion-list>
+      <ion-label>Correo o Email:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="usuario.correo" type="text"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos de su cuenta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre de usuario:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-input [(ngModel)]="usuario.nombreUsuario" type="text"></ion-input>
+      </ion-item>
+      <ion-label>Contraseña de usuario:</ion-label>
+      <ion-item *ngIf="usuario">
+        <ion-input [(ngModel)]="usuario.contraUsuario" type="text"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!--<ion-button expand="full" (click)="saveUser()">Guardar</ion-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+    <ion-fab-button color="danger" routerDirection="forward" (click)="onRemove(usuarioId)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>-->
+</ion-content>

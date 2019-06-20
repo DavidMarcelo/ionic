@@ -1,0 +1,94 @@
+<app-header titulo="Detalles"></app-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+          <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+          <ion-card-title>Datos Principales</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>Nombre o apodo:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.nombre}}</ion-label>
+          </ion-item>
+          <ion-label>Raza:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.raza}}</ion-label>
+          </ion-item>
+          <ion-label>Fecha de nacimiento:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.nacimiento}}</ion-label>
+          </ion-item>
+          <ion-label>Sexo:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.sexoAnimal}}</ion-label>
+          </ion-item>
+          <ion-label>Vacia:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.vacia}}</ion-label>
+          </ion-item>
+          <ion-label>Numero interno:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.numInt}}</ion-label>
+          </ion-item>
+          <ion-label>Numero de pierna:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.numPierna}}</ion-label>
+          </ion-item>
+          <ion-label>Siiniga:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.siiniga}}</ion-label>
+          </ion-item>
+          <ion-label>Madre:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.madre}}</ion-label>
+          </ion-item>
+          <ion-label>Padre:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.padre}}</ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-card>
+        <!--<ion-card-header>Estado</ion-card-header>-->
+        <ion-card-content>
+          <ion-label>Estado del animal:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.estado}}</ion-label>
+          </ion-item>
+          <!--Inicio estado normal-->
+          <ion-label>Observaciones:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label rows="4" cols="20">{{animal.observaciones}}</ion-label>
+          </ion-item>
+          <ion-label>Ubicación:</ion-label>
+          <ion-item *ngIf="animal">
+            <ion-label>{{animal.ubicacion}}</ion-label>
+          </ion-item>
+          <ion-button expand="full" [routerLink]="['/modalvacunas', animal.nombre]" >
+            Vacunas
+            <ion-icon name="eye"></ion-icon>
+          </ion-button>
+          <ion-button expand="full"  (click)="agergarCria()">
+            Hijos
+            <ion-icon name="eye"></ion-icon>
+          </ion-button><!--*ngIf="estadoHembra" -->
+        </ion-card-content>
+      </ion-card>
+    
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button color="success" (click)="editar()">
+            <ion-icon name="create"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="danger" (click)="eliminar()">
+            <ion-icon name="trash"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+
+</ion-content>

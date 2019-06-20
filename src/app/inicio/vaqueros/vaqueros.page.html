@@ -1,0 +1,15 @@
+<app-header titulo="Vaqueros"></app-header>
+
+<ion-content padding>
+    <ion-searchbar placeholder="Buscar usuario" animated (ionChange)="buscarUser($event)">
+    </ion-searchbar>
+    <ion-list *ngFor="let ani of animales | animalesP:textoBuscar">
+        <ion-item lines="inset" button [routerLink]="['/infoanimal', ani.id]" detail>
+            <ion-label>
+                {{ani.nombre}}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" routerLink="/editanimal">Agregar nuevo</ion-button>
+</ion-content>
